@@ -1,6 +1,14 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\ng-components\\src",
+    "\\ng-components\\src\\app",
+    "\\ng-first-app",
+    "\\ng-first-app\\src",
+    "\\ng-first-app\\src\\app",
+    "\\ng-first-app\\src\\app\\server",
+    "\\ng-first-app\\src\\app\\servers"
   ],
+  "SelectedNode": "\\ng-first-app\\src\\app\\server\\server.component.ts",
   "PreviewInSolutionExplorer": false
 }
