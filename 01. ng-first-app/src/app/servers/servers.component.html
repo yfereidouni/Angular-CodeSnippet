@@ -1,0 +1,26 @@
+<p>One-Way Binding</p>
+<input type="text" class="form-control mb-2"
+(input)="onUpdateServerName($event)">
+
+<p>Two-Way Binding</p>
+<input 
+    type="text" 
+    class="form-control mb-2"
+    [(ngModel)]="serverName">
+
+<p>SERVER NAME : {{ serverName }}</p>
+
+<button class="btn btn-primary mb-2"
+    [disabled]="!allowNewServer"
+    (click)="onServerCreation()"
+    >
+    Add Server
+</button>
+
+<p>{{ serverCreationStatus }}</p>
+
+<!-- <p>string interpolation: {{ allowNewServer}}</p>
+<p [innerText]="allowNewServer"></p>  -->
+
+<app-server></app-server>
+<app-server></app-server>
