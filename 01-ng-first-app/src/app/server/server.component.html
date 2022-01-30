@@ -1,1 +1,8 @@
-<h6>The {{'Server'}} with the ID {{serverId}} is {{getServerStatus()}}</h6>
+<!-- <h6>The {{'Server'}} with the ID {{serverId}} is {{getServerStatus()}}</h6> -->
+
+<h6 
+    class="p-2 mt-2 mb-2" 
+    [ngStyle]="{backgroundColor: getColor()}"
+    [ngClass]="{online: serverStatus === 'online'}"
+    >The {{'Server'}} with the ID {{serverId}} is {{getServerStatus()}}
+</h6>

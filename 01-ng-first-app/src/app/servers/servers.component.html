@@ -17,10 +17,14 @@
     Add Server
 </button>
 
-<p>{{ serverCreationStatus }}</p>
+<!-- <p>{{ serverCreationStatus }}</p> -->
+<p *ngIf="serverCreated">{{ serverCreationStatus }}</p>
+
 
 <!-- <p>string interpolation: {{ allowNewServer}}</p>
 <p [innerText]="allowNewServer"></p>  -->
 
+<app-server></app-server>
+<app-server></app-server>
 <app-server></app-server>
 <app-server></app-server>
