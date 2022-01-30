@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +6,21 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+
   title = '04-code-challenge';
+  
+  showSecret = false;
+  
+  log : number[] = [];
+  
+  date: Date[] = [];
+
+  conter = 0;
+
+
+    onToggledDetails(){
+      this.showSecret = !this.showSecret;
+      this.log.push(this.log.length + 1);
+    }
 }
+
