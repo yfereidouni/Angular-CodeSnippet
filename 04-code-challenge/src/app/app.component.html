@@ -18,13 +18,20 @@
 
       <p *ngIf="showSecret" class="mt-2">Secret Password = tuna</p>
 
-      <div 
+      <!-- <div 
         *ngFor="let logItem of log" 
         [ngStyle]="{backgroundColor: logItem >= 5 ? 'blue': 'transparent'}"
         [ngClass]="{'white-text': logItem >= 5}">
         {{logItem}}
       </div>
-  
+   -->
+      <div 
+        *ngFor="let logItem of log; let i = index" 
+        [ngStyle]="{backgroundColor: i >= 4 ? 'blue': 'transparent'}"
+        [ngClass]="{'white-text': i >= 4}">
+        {{logItem}}
+      </div>
+
     </div>
   </div>
 </div>

@@ -11,16 +11,17 @@ export class AppComponent {
   
   showSecret = false;
   
-  log : number[] = [];
-  
-  date: Date[] = [];
+  // log : number[] = [];
+  log : any[] = [];
+
 
   conter = 0;
 
 
     onToggledDetails(){
       this.showSecret = !this.showSecret;
-      this.log.push(this.log.length + 1);
+      // this.log.push(this.log.length + 1);
+      this.log.push(new Date());
     }
 }
 
