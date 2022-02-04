@@ -1,0 +1,44 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      
+      <p class="mt-2 b">Add new Servers or Blueprints</p>
+      
+      <label>Server Name</label>
+      <input 
+        type="text" 
+        class="form-control"
+        (click)="onServerClicked()"
+        [(ngModel)]="newServerName">
+
+      <label>Server Content</label>
+      <input 
+        type="text" 
+        class="form-control"
+        (click)="onBlueprintClicked()"
+        [(ngModel)]="newServerContent">
+
+        <button class="btn btn-primary mt-2 me-2">Add Server</button>
+      <button class="btn btn-primary mt-2 me-2">Add Blueprint</button>
+
+    </div>
+  </div>
+
+  <hr>
+
+<div class="row">
+  <div class="col-xs-12">
+
+    <div class="card" *ngfor="let element of serverElements">
+      <div class="card-header">
+        {{element.name}}
+      </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">{{element.content}}</li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+
+</div>
