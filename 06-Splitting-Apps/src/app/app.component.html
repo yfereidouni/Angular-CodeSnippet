@@ -37,7 +37,7 @@
     <!-- <p *ngFor="let node of serverElements">{{node.type}} | {{node.name}} | {{node.content}}</p> -->
     
     <div 
-        class="card mb-1" 
+        class="card mb-2" 
         *ngFor="let node of serverElements"
         (click)="removeNode()"
         >
@@ -50,6 +50,7 @@
           class="list-group-item" 
           [ngClass]="{serverBodyStyle: node.type ==='Server', blueprintBodyStyle: node.type ==='BluePrint'}">
           {{node.content}}
+          
         </li>
       </ul>
     </div>
