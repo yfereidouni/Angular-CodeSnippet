@@ -41,15 +41,16 @@
         *ngFor="let node of serverElements"
         (click)="removeNode()"
         >
-      <div class="card-header">
+      <div 
+        class="card-header">
         {{node.type}} : {{node.name}}
       </div>
       <ul class="list-group list-group-flush">
         <li 
           class="list-group-item" 
-          [ngClass]="{serverStyle: node.type ==='Server' , blueprintStyle: node.type ==='BluePrint'}"
-          >
-          {{node.content}}</li>
+          [ngClass]="{serverBodyStyle: node.type ==='Server', blueprintBodyStyle: node.type ==='BluePrint'}">
+          {{node.content}}
+        </li>
       </ul>
     </div>
 
