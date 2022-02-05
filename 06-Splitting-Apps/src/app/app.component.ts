@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Node } from './shared/node.model';
 
 @Component({
   selector: 'app-root',
@@ -8,24 +9,31 @@ import { Component } from '@angular/core';
 export class AppComponent {
   newServerName = '';
   newServerContent = '';
-  showCard = false;
-  serverElements = [];
-  bluprints = [];
+  serverElements: Node[] = [];
 
   title = '06-Splitting-Apps';
 
   onServerClicked() {
-    // this.serverElements.push({
-    //   type:'server',
-    //   name: this.newServerName,
-    //   content: this.newServerContent;
-    // })
+    if (this.newServerName !== '' && this.newServerContent !== '') {
+      this.serverElements.push(
+        new Node('Server', this.newServerName, this.newServerContent)
+      );
+    }
   }
+
   onBlueprintClicked() {
-    // this.serverElements.push({
-    //   type:'blueprint',
-    //   name: this.newServerName,
-    //   content: this.newServerContent;
-    // })
+    if (this.newServerName !== '' && this.newServerContent !== '') {
+      this.serverElements.push(
+        new Node('BluePrint', this.newServerName, this.newServerContent)
+      );
+    }
+  }
+
+  onResetClicked() {
+    this.serverElements = [];
+  }
+
+  removeNode() {
+    this.serverElements.pop();
   }
 }
