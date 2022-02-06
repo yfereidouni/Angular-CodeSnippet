@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Element } from './shared/element.model';
 
 @Component({
   selector: 'app-root',
@@ -6,9 +7,14 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  serverElements = [
+  serverElements: Element[] = [
     {
       type: 'Server',
+      name: 'DevOps',
+      content: 'Centralize Version Control',
+    },
+    {
+      type: 'BluePrint',
       name: 'DevOps',
       content: 'Centralize Version Control',
     },
