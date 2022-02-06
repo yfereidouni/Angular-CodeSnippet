@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Element } from './shared/element.model';
 
 @Component({
@@ -19,4 +19,23 @@ export class AppComponent {
       content: 'Centralize Version Control',
     },
   ];
+
+  onServerAdded(serverData: { serverName: string; serverContent: string }) {
+    this.serverElements.push({
+      type: 'Server',
+      name: serverData.serverName,
+      content: serverData.serverContent,
+    });
+  }
+
+  onBluePrintAdded(bluePrintData: {
+    serverName: string;
+    serverContent: string;
+  }) {
+    this.serverElements.push({
+      type: 'BluePrint',
+      name: bluePrintData.serverName,
+      content: bluePrintData.serverContent,
+    });
+  }
 }
