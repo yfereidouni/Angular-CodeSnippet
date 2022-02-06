@@ -1,61 +1,18 @@
+<!-- (serverCreated)="onServerAdded($event)"
+(bluePrintCreated)="onBluePrintAdded($event)" -->
+
 <div class="container">
-  <div class="row">
-    <div class="col-xs-12">
-      
-      <p class="mt-2 b">Add new Servers or Blueprints</p>
-      
-      <label>Server Name</label>
-      <input 
-        type="text" 
-        class="form-control"
-        [(ngModel)]="newServerName">
 
-      <label>Server Content</label>
-      <input 
-        type="text" 
-        class="form-control"
-        [(ngModel)]="newServerContent">
-
-        <button 
-          class="btn btn-primary mt-2 me-2"
-          (click)="onServerClicked()">Add Server</button>
-      <button 
-        class="btn btn-primary mt-2 me-2"
-        (click)="onBlueprintClicked()">Add Blueprint</button>
-      <button 
-        class="btn btn-danger mt-2 me-2"
-        (click)="onResetClicked()">Reset</button>
-
-    </div>
-  </div>
+  <app-cockpit></app-cockpit>
 
   <hr>
-
 <div class="row">
   <div class="col-xs-12">
-
     <!-- <p *ngFor="let node of serverElements">{{node.type}} | {{node.name}} | {{node.content}}</p> -->
-    
-    <div 
-        class="card mb-2" 
-        *ngFor="let node of serverElements"
-        (click)="removeNode()"
-        >
-      <div 
-        class="card-header">
-        {{node.type}} : {{node.name}}
-      </div>
-      <ul class="list-group list-group-flush">
-        <li 
-          class="list-group-item" 
-          [ngClass]="{serverBodyStyle: node.type ==='Server', blueprintBodyStyle: node.type ==='BluePrint'}">
-          {{node.content}}
-          
-        </li>
-      </ul>
-    </div>
 
-  </div>
+    <app-node *ngFor="let serverElement from serverElements"
+    [srvElement]="serverElement"></app-node>
+
 </div>
-
+</div>
 </div>
