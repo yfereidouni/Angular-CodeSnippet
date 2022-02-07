@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { Node } from './shared/node.model';
+import { findIndex } from 'rxjs';
+import { Element } from './shared/element.model';
 
 @Component({
   selector: 'app-root',
@@ -7,33 +8,56 @@ import { Node } from './shared/node.model';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  newServerName = '';
-  newServerContent = '';
-  serverElements: Node[] = [];
+  serverElements: Element[] = [
+    {
+      type: 'Server',
+      name: 'DevOps',
+      content: 'Centralize Version Control',
+    },
+    {
+      type: 'BluePrint',
+      name: 'DevOps',
+      content: 'Centralize Version Control',
+    },
+  ];
 
-  title = '06-Splitting-Apps';
-
-  onServerClicked() {
-    if (this.newServerName !== '' && this.newServerContent !== '') {
-      this.serverElements.push(
-        new Node('Server', this.newServerName, this.newServerContent)
-      );
-    }
+  onServerAdded(serverData: {serverType:string; serverName: string; serverContent: string }) {
+    this.serverElements.push({
+      type: serverData.serverType,
+      name: serverData.serverName,
+      content: serverData.serverContent,
+    });
   }
 
-  onBlueprintClicked() {
-    if (this.newServerName !== '' && this.newServerContent !== '') {
-      this.serverElements.push(
-        new Node('BluePrint', this.newServerName, this.newServerContent)
-      );
-    }
+  onBluePrintAdded(bluePrintData: {
+    serverType:string;
+    serverName: string;
+    serverContent: string;
+  }) {
+    this.serverElements.push({
+      type: bluePrintData.serverType,
+      name: bluePrintData.serverName,
+      content: bluePrintData.serverContent,
+    });
   }
 
-  onResetClicked() {
+  onReset() {
     this.serverElements = [];
   }
 
-  removeNode() {
-    this.serverElements.pop();
+  onRemove(removeData: {
+    serverType:string;
+    serverName: string;
+    serverContent: string;
+  }){
+
+    let deletedIndex = this.serverElements.findIndex(c => c.type === removeData.serverType &&
+    c.name === removeData.serverName &&  c.content === removeData.serverContent);
+
+   this.serverElements.splice(deletedIndex, 1);   
+    
+    //console.log(removeData.serverType + " | "+ removeData.serverName + " | " + removeData.serverContent);
+    //this.serverElements.pop();
   }
+  
 }

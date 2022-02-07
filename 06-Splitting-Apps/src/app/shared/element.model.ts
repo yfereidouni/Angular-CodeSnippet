@@ -1,4 +1,4 @@
-export class Node {
+export class Element {
   constructor(
     public type: string,
     public name: string,
