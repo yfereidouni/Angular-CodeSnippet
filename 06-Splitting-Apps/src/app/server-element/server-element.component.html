@@ -5,7 +5,8 @@
         {{element.type}} : {{element.name}}
     </div>
     <ul class="list-group list-group-flush">
-        <li class="list-group-item" [ngClass]="{serverBodyStyle: element.type ==='Server', blueprintBodyStyle: element.type ==='BluePrint'}">{{element.content}}
+        <li class="list-group-item" [ngClass]="{serverBodyStyle: element.type ==='Server', blueprintBodyStyle: element.type ==='BluePrint'}">
+            {{element.content}}
         </li>
     </ul>
 </div>
