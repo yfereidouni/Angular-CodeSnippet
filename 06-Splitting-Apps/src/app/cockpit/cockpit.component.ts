@@ -1,5 +1,11 @@
-import { outputAst } from '@angular/compiler';
-import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  EventEmitter,
+  Output,
+  ViewChild,
+  ElementRef,
+} from '@angular/core';
 
 @Component({
   selector: 'app-cockpit',
@@ -8,56 +14,67 @@ import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 })
 export class CockpitComponent implements OnInit {
   @Output() serverCreated = new EventEmitter<{
-    serverType:string;
+    serverType: string;
     serverName: string;
     serverContent: string;
   }>();
   @Output() bluePrintCreated = new EventEmitter<{
-    serverType:string;
+    serverType: string;
     serverName: string;
     serverContent: string;
   }>();
 
   @Output() resetServerElements = new EventEmitter<{}>();
-  
 
   newServerType = '';
-  newServerName = '';
-  newServerContent = '';
+  //newServerName = '';
+  //newServerContent = '';
+  //newServerName = '';
+  //newServerContent = '';
+  @ViewChild('serverContentInput')
+  serverContentInput!: ElementRef;
 
-  nodes: Element[]=[];
+  nodes: Element[] = [];
 
   constructor() {}
 
   ngOnInit(): void {}
 
-  onAddServer() {
-    if (this.newServerName !== '' && this.newServerContent !== '') {
+  onAddServer(serverNameInput: HTMLInputElement) {
+    //console.log(serverNameInput.value);
+    //if (this.newServerName !== '' && this.newServerContent !== '') {
+    if (
+      serverNameInput.value !== '' &&
+      this.serverContentInput.nativeElement.value !== ''
+    ) {
       this.serverCreated.emit({
         serverType: 'Server',
-        serverName: this.newServerName,
-        serverContent: this.newServerContent,
+        serverName: serverNameInput.value,
+        serverContent: this.serverContentInput.nativeElement.value,
       });
     }
   }
 
-  onAddBluePrint() {
-    if (this.newServerName !== '' && this.newServerContent !== '') {
+  onAddBluePrint(serverNameInput: HTMLInputElement) {
+    //console.log(serverNameInput.value);
+    //if (this.newServerName !== '' && this.newServerContent !== '') {
+    if (
+      serverNameInput.value !== '' &&
+      this.serverContentInput.nativeElement.value !== ''
+    ) {
       this.serverCreated.emit({
         serverType: 'BluePrint',
-        serverName: this.newServerName,
-        serverContent: this.newServerContent,
+        serverName: serverNameInput.value,
+        serverContent: this.serverContentInput.nativeElement.value,
       });
     }
   }
 
-  onResetClicked() {
+  onResetClicked(serverNameInput: HTMLInputElement) {
     this.resetServerElements.emit({
       serverType: 'Server',
-      serverName: this.newServerName,
-      serverContent: this.newServerContent,
+      serverName: serverNameInput.value,
+      serverContent: this.serverContentInput.nativeElement.value,
     });
   }
-
-  
 }

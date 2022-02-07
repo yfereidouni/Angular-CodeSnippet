@@ -4,26 +4,38 @@
       <p class="mt-2 b">Add new Servers or Blueprints</p>
     
       <label>Server Name</label>
-      <input type="text" class="form-control" [(ngModel)]="newServerName">
+      
+      <!-- Two-Way Binding -->
+      <!-- <input type="text" class="form-control" [(ngModel)]="newServerName"> -->
+      
+      <!-- Local Reference -->
+      <input 
+        type="text" 
+        class="form-control" 
+        #serverNameInput>
     
       <label>Server Content</label>
-      <input type="text" class="form-control" [(ngModel)]="newServerContent">
+      <!-- <input type="text" class="form-control" [(ngModel)]="newServerContent"> -->
+      <input 
+        type="text" 
+        class="form-control" 
+        #serverContentInput>
       
       <button 
         class="btn btn-primary mt-2 me-2" 
-        (click)="onAddServer()">
+        (click)="onAddServer(serverNameInput)">
         Add Server
       </button>
       
       <button 
         class="btn btn-primary mt-2 me-2" 
-        (click)="onAddBluePrint()">
+        (click)="onAddBluePrint(serverNameInput)">
         Add Blueprint
       </button>
       
       <button 
         class="btn btn-danger mt-2 me-2" 
-        (click)="onResetClicked()">
+        (click)="onResetClicked(serverNameInput)">
         Reset
       </button>
     
