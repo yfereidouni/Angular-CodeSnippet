@@ -1,6 +1,6 @@
 <!-- *ngFor="let serverElement of serverElements" (click)="removeNode()" -->
 
-<div class="card mb-2">
+<div class="card mb-2" (click)="onRemoveClicked()">
     <div class="card-header">
         {{element.type}} : {{element.name}}
     </div>

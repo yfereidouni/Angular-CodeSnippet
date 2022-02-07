@@ -1,12 +1,9 @@
-<!-- (serverCreated)="onServerAdded($event)"
-(bluePrintCreated)="onBluePrintAdded($event)" -->
-
 <div class="container">
-
+  
   <app-cockpit
     (serverCreated)="onServerAdded($event)"
     (bluePrintCreated)="onBluePrintAdded($event)"
-    >
+    (resetServerElements)="onReset()">
   </app-cockpit>
 
   <hr>
@@ -14,8 +11,10 @@
   <div class="col-xs-12">
     <!-- <p *ngFor="let node of serverElements">{{node.type}} | {{node.name}} | {{node.content}}</p> -->
 
-    <app-server-element *ngFor="let serverElement of serverElements"
-    [srvElement]="serverElement"></app-server-element>
+    <app-server-element 
+      *ngFor="let serverElement of serverElements"
+      [srvElement]="serverElement"
+      (removeServerElement)="onRemove($event)"></app-server-element>
 
 </div>
 </div>

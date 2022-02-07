@@ -1,3 +1,4 @@
+import { outputAst } from '@angular/compiler';
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 
 @Component({
@@ -7,17 +8,24 @@ import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 })
 export class CockpitComponent implements OnInit {
   @Output() serverCreated = new EventEmitter<{
+    serverType:string;
     serverName: string;
     serverContent: string;
   }>();
   @Output() bluePrintCreated = new EventEmitter<{
+    serverType:string;
     serverName: string;
     serverContent: string;
   }>();
-  //bluePrintCreated =
 
+  @Output() resetServerElements = new EventEmitter<{}>();
+  
+
+  newServerType = '';
   newServerName = '';
   newServerContent = '';
+
+  nodes: Element[]=[];
 
   constructor() {}
 
@@ -26,6 +34,7 @@ export class CockpitComponent implements OnInit {
   onAddServer() {
     if (this.newServerName !== '' && this.newServerContent !== '') {
       this.serverCreated.emit({
+        serverType: 'Server',
         serverName: this.newServerName,
         serverContent: this.newServerContent,
       });
@@ -35,6 +44,7 @@ export class CockpitComponent implements OnInit {
   onAddBluePrint() {
     if (this.newServerName !== '' && this.newServerContent !== '') {
       this.serverCreated.emit({
+        serverType: 'BluePrint',
         serverName: this.newServerName,
         serverContent: this.newServerContent,
       });
@@ -42,10 +52,12 @@ export class CockpitComponent implements OnInit {
   }
 
   onResetClicked() {
-    //this.serverElements = [];
+    this.resetServerElements.emit({
+      serverType: 'Server',
+      serverName: this.newServerName,
+      serverContent: this.newServerContent,
+    });
   }
 
-  removeNode() {
-    //this.serverElements.pop();
-  }
+  
 }

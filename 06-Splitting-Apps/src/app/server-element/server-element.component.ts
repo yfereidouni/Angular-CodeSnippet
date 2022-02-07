@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output,EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-server-element',
@@ -12,7 +12,22 @@ export class ServerElementComponent implements OnInit {
     content: string;
   };
 
+  @Output() removeServerElement = new EventEmitter<{
+    serverType:string;
+    serverName: string;
+    serverContent: string;
+  }>();
+
   constructor() {}
 
   ngOnInit(): void {}
+
+  onRemoveClicked() {
+    //console.log(this)
+    this.removeServerElement.emit({
+      serverType: this.element.type,
+      serverName: this.element.name,
+      serverContent: this.element.content,
+    });
+  }
 }
