@@ -1,5 +1,4 @@
-import { Component } from '@angular/core';
-import { findIndex } from 'rxjs';
+import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { Element } from './shared/element.model';
 
 @Component({
@@ -21,7 +20,11 @@ export class AppComponent {
     },
   ];
 
-  onServerAdded(serverData: {serverType:string; serverName: string; serverContent: string }) {
+  onServerAdded(serverData: {
+    serverType: string;
+    serverName: string;
+    serverContent: string;
+  }) {
     this.serverElements.push({
       type: serverData.serverType,
       name: serverData.serverName,
@@ -30,7 +33,7 @@ export class AppComponent {
   }
 
   onBluePrintAdded(bluePrintData: {
-    serverType:string;
+    serverType: string;
     serverName: string;
     serverContent: string;
   }) {
@@ -46,18 +49,20 @@ export class AppComponent {
   }
 
   onRemove(removeData: {
-    serverType:string;
+    serverType: string;
     serverName: string;
     serverContent: string;
-  }){
+  }) {
+    let deletedIndex = this.serverElements.findIndex(
+      (c) =>
+        c.type === removeData.serverType &&
+        c.name === removeData.serverName &&
+        c.content === removeData.serverContent
+    );
 
-    let deletedIndex = this.serverElements.findIndex(c => c.type === removeData.serverType &&
-    c.name === removeData.serverName &&  c.content === removeData.serverContent);
+    this.serverElements.splice(deletedIndex, 1);
 
-   this.serverElements.splice(deletedIndex, 1);   
-    
     //console.log(removeData.serverType + " | "+ removeData.serverName + " | " + removeData.serverContent);
     //this.serverElements.pop();
   }
-  
 }

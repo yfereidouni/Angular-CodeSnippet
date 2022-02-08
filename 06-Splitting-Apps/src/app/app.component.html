@@ -15,6 +15,9 @@
         *ngFor="let serverElement of serverElements"
         [srvElement]="serverElement"
         (removeServerElement)="onRemove($event)">
+        <li class="list-group-item" [ngClass]="{serverBodyStyle: serverElement.type ==='Server',    blueprintBodyStyle: serverElement.type ==='BluePrint'}">
+          {{serverElement.content}}
+        </li>
       </app-server-element>
 
     </div>

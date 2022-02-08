@@ -1,0 +1,9 @@
+.serverBodyStyle {
+  color: red;
+  font-weight: bold;
+}
+
+.blueprintBodyStyle {
+  color: blue;
+  font-style: italic;
+}
