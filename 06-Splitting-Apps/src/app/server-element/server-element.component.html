@@ -1,7 +1,7 @@
 <!-- *ngFor="let serverElement of serverElements" (click)="removeNode()" -->
 
 <div class="card mb-2" (click)="onRemoveClicked()">
-    <div class="card-header">
+    <div class="card-header" #heading>
         {{element.type}} : {{element.name}}
     </div>
     <ul class="list-group list-group-flush">
