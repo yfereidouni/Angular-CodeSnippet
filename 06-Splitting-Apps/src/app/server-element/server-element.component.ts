@@ -50,6 +50,7 @@ export class ServerElementComponent
   ngAfterContentInit(): void {
     console.log('==> ngAfterContentInit was executed!');
   }
+
   ngAfterContentChecked(): void {
     console.log('==> ngAfterContentChecked was executed!');
   }
