@@ -15,8 +15,13 @@ export class GameControlComponent implements OnInit {
   ngOnInit(): void {}
 
   onStartGame() {
-    this.interval = setInterval(() => {}, 1000);
-    this.intervalFired.emit(this.lastNumber + 1);
-    this.lastNumber++;
+    this.interval = setInterval(() => {
+      this.intervalFired.emit(this.lastNumber + 1);
+      this.lastNumber++;
+    }, 1000);
+  }
+
+  onPauseGame() {
+    clearInterval(this.interval);
   }
 }
