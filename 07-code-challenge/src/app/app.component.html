@@ -3,19 +3,26 @@
     <div class="col-xs-12">
 
       <h1 class="h2 mt-2">Bind it!</h1>
-      <hr>
+      <ol class="list-group">
+        <li class="list-group-items">Please make sure</li>
+      </ol>
+  
     </div>
   </div>
+  
+  <hr>
   
   <div class="row">
     <div class="col-xs-12">
       <app-game-control (intervalFired)="onIntervalFired($event)"></app-game-control>
     </div>
   </div>
+  
   <div class="row">
     <div class="col-xs-12">
       <app-odd *ngFor="let oddNumber of oddNumbers" [number]="oddNumber"></app-odd>
       <app-even *ngFor="let evenNumber of evenNumbers" [number]="evenNumber"></app-even>
     </div>
   </div>
+
 </div>
