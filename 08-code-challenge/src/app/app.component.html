@@ -1,0 +1,27 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-xs-12">
+
+      <button 
+        class="btn btn-primary mt-2 me-2" 
+        (click)="onlyOdd = !onlyOdd">
+        Show Odd or Even Numbers
+      </button>
+
+      <div class="" *ngIf="onlyOdd">
+        <ul class="list-group mt-2" 
+          *ngFor="let odd of oddList">
+          <li class="list-group-item">{{odd}}</li>
+        </ul>
+      </div>
+
+      <div class="" *ngIf="!onlyOdd">
+        <ul class="list-group mt-2" 
+          *ngFor="let even of evenList">
+          <li class="list-group-item">{{even}}</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</div>
