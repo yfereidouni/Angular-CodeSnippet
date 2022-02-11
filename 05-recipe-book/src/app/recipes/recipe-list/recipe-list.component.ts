@@ -16,7 +16,7 @@ export class RecipeListComponent implements OnInit {
     new Recipe(
       'Roast beef Soup',
       'This is new taste of grilled-chicken.',
-      'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/easy-cheap-dinners-weeknight-1604466210.jpg?crop=0.502xw:1.00xh;0.498xw,0&resize=640:*'
+      'https://images.immediate.co.uk/production/volatile/sites/30/2013/05/Puttanesca-fd5810c.jpg'
     ),
     new Recipe(
       'Pasta alla Norma',
