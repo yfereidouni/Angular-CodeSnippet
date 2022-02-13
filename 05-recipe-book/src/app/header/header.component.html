@@ -21,20 +21,34 @@
             
         </div>
         
-        <div class="ml-auto">
+        <div ngbDropdown class="ml-auto">
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <ul class="navbar-nav">
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">Manage
+                    <li  class="nav-item dropdown">
+                        <a 
+                            ngbDropdownToggle 
+                            class="nav-link dropdown-toggle" 
+                            href="#" id="navbarDropdownMenuLink" 
+                            role="button" 
+                            data-bs-toggle="dropdown" 
+                            aria-expanded="false">Manage Information
                         </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <li><a class="dropdown-item" href="#">Save Data</a></li>
-                            <li><a class="dropdown-item" href="#">Fetch Data</a></li>
+                        <ul 
+                            ngbDropdownMenu 
+                            class="dropdown-menu dropdown-menu-lg-end" 
+                            aria-labelledby="navbarDropdownMenuLink">
+                            <li><a class="dropdown-item" href="#">Save</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#">Fetch</a></li>
                         </ul>
                     </li>
                 </ul>
             </div> 
         </div>
+
+
+
+
 
         <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
