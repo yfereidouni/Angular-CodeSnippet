@@ -1,14 +1,22 @@
 export class CounterService {
-  activeToInactiveCounter = 0;
-  inactiveToActiveCounter = 0;
+  activeToInactiveCounter = 2;
+  inactiveToActiveCounter = 2;
 
   incrementActiveToInactive() {
     this.activeToInactiveCounter++;
-    console.log('Active to Inactive: ' + this.activeToInactiveCounter);
+    this.inactiveToActiveCounter--;
+    // console.log('Active to Inactive: ' + this.activeToInactiveCounter);
+    console.log('-------------');
+    console.log('Active   : ' + this.inactiveToActiveCounter);
+    console.log('Inactive : ' + this.activeToInactiveCounter);
   }
 
   incrementInActiveToActive() {
     this.inactiveToActiveCounter++;
-    console.log('Inactive to Active: ' + this.inactiveToActiveCounter);
+    this.activeToInactiveCounter--;
+    // console.log('Inactive to Active: ' + this.inactiveToActiveCounter);
+    console.log('-------------');
+    console.log('Active   : ' + this.inactiveToActiveCounter);
+    console.log('Inactive : ' + this.activeToInactiveCounter);
   }
 }
