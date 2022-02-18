@@ -3,9 +3,9 @@
 
     <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
       <ul class="nav nav-tabs">
-        <li role="presentation" class="nav-link active"><a href="/">Home</a></li>
-        <li role="presentation" class="nav-link"><a href="/servers">Servers</a></li>
-        <li role="presentation" class="nav-link"><a href="/users">Users</a></li>
+        <li role="presentation" class="nav-link active"><a routerLink="/">Home</a></li>
+        <li role="presentation" class="nav-link"><a routerLink="/servers">Servers</a></li>
+        <li role="presentation" class="nav-link"><a [routerLink]="['/users']">Users</a></li>
       </ul>
     </div>
 
