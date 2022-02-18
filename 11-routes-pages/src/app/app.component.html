@@ -1,46 +1,33 @@
 <div class="container">
   <div class="row">
 
-    <div class="nav nav-tabs">
-      <button 
-        class="nav-link active" 
-        id="nav-home-tab" 
-        data-bs-toggle="tab" 
-        data-bs-target="#nav-home" 
-        type="button" 
-        role="tab" 
-        aria-controls="nav-home" 
-        aria-selected="true">Home
-      </button>
-      <button 
-        class="nav-link" 
-        id="nav-profile-tab" 
-        data-bs-toggle="tab" 
-        data-bs-target="#nav-profile" 
-        type="button" role="tab" 
-        aria-controls="nav-profile" 
-        aria-selected="false">Servers
-      </button>
-      <button 
-        class="nav-link" 
-        id="nav-contact-tab" 
-        data-bs-toggle="tab" 
-        data-bs-target="#nav-contact" 
-        type="button" 
-        role="tab" 
-        aria-controls="nav-contact" 
-        aria-selected="false">Users
-      </button>
+    <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+      <ul class="nav nav-tabs">
+        <li class="nav-item">
+          <a 
+            class="nav-link" aria-current="page"
+            routerLinkActive="active" 
+            [routerLinkActiveOptions]="{exact:true}"
+            routerLink="/">Home
+          </a>
+        </li>
+        <li class="nav-item">
+          <a 
+            class="nav-link" aria-current="page"
+            routerLinkActive="active" 
+            routerLink="/servers">Servers
+          </a>
+        </li>
+        <li class="nav-item">
+          <a 
+            class="nav-link" aria-current="page"
+            routerLinkActive="active" 
+            [routerLink]="['/users']">Users
+          </a>
+        </li>
+      </ul>
 
     </div>
-    
-    <!-- <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
-      <ul class="nav nav-tabs">
-        <li role="presentation" class="active"><a href="#">Home</a></li>
-        <li role="presentation"><a href="#">Servers</a></li>
-        <li role="presentation"><a href="#">Users</a></li>
-      </ul>
-    </div> -->
 
   </div>
   <div class="row">
